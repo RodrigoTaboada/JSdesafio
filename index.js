@@ -1,28 +1,37 @@
-/* WHILE */
 
-/* let mascotas = prompt("Ingresa la cantidad de mascotas que tiene");
+alert("Ingresa las notas de los estudiantes de este año y vamos a sacar el promedio y ver si aprobaron!");
 
+let promedioCalculo 
+let suma 
+let ingresaNotas 
+let ingresaNotas2 
+let ingresaNotas3 
 
-while ((mascotas != "no tengo") && (mascotas != "0") && (mascotas != "")) {
-    if (mascotas <= 3){
-        alert("Te gustan las mascotas");
-}   else if (mascotas <= 6) {
-    alert("Te gustan MUCHO las mascotas");
-}   else {
-        alert("AMAS las mascotas y tu sueldo se va en ellas!");
+function notas(){
+ingresaNotas = Number(prompt("Ingrese la nota del 1er trimestre del alumno"));
+ingresaNotas2 = Number(prompt("Ingrese la nota del 2do trimestre del alumno"));
+ingresaNotas3 = Number(prompt("Ingrese la nota del 3er trimestre del alumno"));
+
+while ((ingresaNotas == isNaN) && (ingresaNotas2 == isNaN) && (ingresaNotas3 == isNaN)){  
+alert("Ingresa una nota")
 }
 
-
-    mascotas = prompt("Ingresa la cantidad de mascotas que tiene");
-} */
-
-
-/* FOR */
-
-
-let numero = parseInt(prompt("Ingresa la cantidad de saludos"));
-
-for(saludo = 0; saludo <=  numero ; saludo++){
-    let mensaje = ` #${saludo} Hola! `;
-    alert(mensaje);
 }
+
+function promedio(ingresaNotas,ingresaNotas2,ingresaNotas3){
+    suma = ingresaNotas + ingresaNotas2 + ingresaNotas3;
+    promedioCalculo = suma / 3;
+}
+
+function felicitaciones(){
+    if( promedio >= 7){
+        alert("Felicitaciones APROBASTE")
+    }else{
+        alert("Desaprobado, pero podes recuperarlo!");
+}
+}
+
+notas()
+promedio()
+felicitaciones()
+
