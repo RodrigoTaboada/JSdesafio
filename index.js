@@ -1,47 +1,52 @@
-let notas = prompt("Ingrese SIGUIENTE si desea promediar las notas, sino ingrese NO para terminar");
 
-
-function promedio(ingresaNotas,ingresaNotas2,ingresaNotas3){
-    let suma = ingresaNotas + ingresaNotas2 + ingresaNotas3;
-    let promedioDeNotas = suma / 3;
-    return promedioDeNotas
-}
-
-function felicitaciones(promedioDeNotas){
-    if( promedioDeNotas >= 7){
-        alert(`Felicitaciones APROBASTE, tu promedio fue de ${promedioDeNotas}`)
-    }else{
-        alert(`Desaprobado, pero podes recuperarlo!`);
+class Monitor{
+    constructor (marca,modelo,resolucion, precio){
+    this.marca = marca;
+    this.modelo = modelo;
+    this.resolucion = resolucion;
+    this.precio = precio;
 }
 }
 
-
-while (notas != "NO"){  
-    if((notas != "SIGUIENTE") && (notas != "NO")){
-        alert("No ingresaste una respuesta valida")
-        notas = number(prompt("Ingrese calcular si desea promediar las notas, sino ingrese cancelar"));
-    }else{
-        ingresaNotas = Number(prompt("Ingrese la nota del 1er trimestre del alumno"));
-        ingresaNotas2 = Number(prompt("Ingrese la nota del 2do trimestre del alumno"));
-        ingresaNotas3 = Number(prompt("Ingrese la nota del 3er trimestre del alumno"));
-        let promedioDeNotas = promedio(ingresaNotas, ingresaNotas2, ingresaNotas3)
-        felicitaciones(promedioDeNotas)
-        notas = number(prompt("Ingrese calcular si desea promediar las notas, sino ingrese cancelar"));
-
-}
+class Teclado{
+    constructor (marca,modelo,precio, rgb){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.precio = precio;
+        this.rgb = rgb;
+    }
 }
 
 
 
+let productoStockMonitores = [];
+productoStockMonitores.push(new Monitor ("Samsung", "Odyssey", 27, 90000));
+productoStockMonitores.push(new Monitor ("Gadnic", "G4D41N-F", 24, 52393));
+productoStockMonitores.push(new Monitor ("BENQ", "GW2480", 24, 54400));
+productoStockMonitores.push(new Monitor ("Gigabyte", "G24f", 24, 75000));
+productoStockMonitores.push(new Monitor ("Asus", "VA27EHE", 27, 120000));
+
+let productoStockTeclados = [];
+productoStockTeclados.push(new Teclado ("Redragon", "Shiva K512", 6300, "si"));
+productoStockTeclados.push(new Teclado ("Hyper X", "Alloy core rgb", 11200, "si"));
+productoStockTeclados.push(new Teclado ("Logitech", "K380", 6430, "no"));
 
 
 
 
+console.log(productoStockMonitores);
+console.log(productoStockTeclados);
 
 
 
 
+/* let bienvenida = prompt ("Hola, queres comprar un monitor nuevo?")
 
+while (bienvenida != "si" && seleccion != "no"){
+    alert ("Por favor ingresá si o no")
+    bienvenida = prompt ("Hola, queres comprar un monitor nuevo?");
+}
 
+if (bienvenida == "si"){
 
-
+} */
