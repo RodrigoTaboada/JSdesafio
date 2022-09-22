@@ -64,7 +64,7 @@ teclados.push(teclado1,teclado2,teclado3);
 function mostrarInventarioMonitor() {
     monitores.forEach((monitores) => {
     alert(    `
-            Monitor: ${monitor1.modelo}
+            Monitor: ${monitores.modelo}
             Precio: ${monitores.precio}
         `);
     });
