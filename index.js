@@ -1,6 +1,7 @@
 
 let bienvenida = prompt("Hola, bienvenido a la tienda Phietas, ¿Desea ver monitores o teclados?");
-
+let monitores = []
+let teclados = []
 
 
 while (bienvenida !== "") {
@@ -42,8 +43,7 @@ class teclado{
 }
 
 
-let monitores = []
-let teclados = []
+
 
 let monitor1 = new monitor (1,"Gadnic", "G4D41N-F", 24, 52393, 10);
 let monitor2 = new monitor (2,"BENQ", "GW2480", 24, 54400, 7);
@@ -74,7 +74,7 @@ function mostrarInventarioMonitor() {
 function mostrarInventarioTeclado() {
     teclados.forEach((teclados) => {
     alert(    `
-            Monitor: ${teclados.modelo}
+            Teclados: ${teclados.modelo}
             Precio: ${teclados.precio}
         `);
     });
@@ -82,7 +82,7 @@ function mostrarInventarioTeclado() {
 
 mostrarInventarioMonitor()
 mostrarInventarioTeclado()
-console.log(mostrarInventarioMonitor);
+
 
 
 
