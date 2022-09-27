@@ -5,6 +5,9 @@
     margin: 0;
 }
 
+body{
+    background-color: black;
+}
 
 .title{
     text-align: center;
@@ -13,17 +16,47 @@
     font-weight: 400;
 }
 
+.navbar-brand{
+    font-size: 3rem;
+    font-family: 'Lora', serif;
+    color: #8758FF !important; 
+
+}
+
 
 .monitores {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content:  center;
+    margin: auto;
 }
 
 .card{
     margin: 5% 0;
     border-radius: 10px;
     border: solid black 5px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    margin: auto;
+}
+
+
+
+
+img{
+    height: 280px
+}
+
+.marca{
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.resolucion{
+    font-size: 25px;
+    font-weight: regular;
+}
+
+.precio{
+    font-size: 20px;
 }
 
 .card-body{
@@ -32,11 +65,15 @@
 }
 
 
+h1{
+    color: #5CB8E4; 
+}
+
 h2{
     text-align: center;
     font-family: 'Lora', serif;
     font-weight: 300;
-
-
-
+    font-size: 55px;
+    color: #8758FF;
 }
+
