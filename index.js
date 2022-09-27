@@ -1,87 +1,75 @@
+const div = document.getElementById("cards")
+console.log(cards);
 
-let bienvenida = prompt("Hola, bienvenido a la tienda Phietas, ¿Desea ver monitores o teclados?");
-let monitores = []
-let teclados = []
+let monitores = [
+    {
+        id: 1,
+        marca: "Gadnic",
+        modelo: "G4D41N-F",
+        resolucion: 24,
+        precio: 52393,
+        imagen : "https://images.bidcom.com.ar/resize?src=https://www.bidcom.com.ar/publicacionesML/productos/MON00121/1000x1000-MON00121.jpg&w=1000&q=100"        
 
-
-while (bienvenida !== "") {
-    if (bienvenida == "monitores") {
-        mostrarInventarioMonitor()
-        break;
-    } else if (bienvenida == "teclados") {
-        mostrarInventarioTeclado()
-        break;
-    }
+},
+{
+        id: 2,
+        marca: "BENQ",
+        modelo: "GW2480",
+        resolucion: 24,
+        precio: 54400,
+        imagen : "https://http2.mlstatic.com/D_NQ_NP_753276-MLA45212632297_032021-O.webp"        
+},
+{
+        id: 3,
+        marca: "Samsung",
+        modelo: "Odyssey G5",
+        resolucion: 27,
+        precio: 90000,
+        imagen : "https://http2.mlstatic.com/D_NQ_NP_629742-MLA50170137833_062022-O.webp"        
+        
+},
+{
+        id: 4,
+        marca: "Gigabyte",
+        modelo: "G24f",
+        resolucion: 24,
+        precio: 75000,
+        imagen : "https://http2.mlstatic.com/D_NQ_NP_988574-MLA48049744030_102021-O.webp"        
+},
+{
+        id: 5,
+        marca: "Asus",
+        modelo: "VA27EHE",
+        resolucion: 27,
+        precio: 120000, 
+        imagen : "https://http2.mlstatic.com/D_NQ_NP_665931-MLA45212708615_032021-O.webp"        
 }
+]
 
 
 
 
-class monitor{
-    constructor (id, marca, modelo,resolucion, precio, stock){
-    this.id = id;
-    this.marca = marca;
-    this.modelo = modelo;
-    this.resolucion = resolucion;
-    this.precio = precio;
-    this.stock = stock;
-}
-}
-
-
-
-class teclado{
-    constructor (id,marca,modelo, precio,rgb, stock){
-    this.id = id;
-    this.marca = marca;
-    this.modelo = modelo;
-    this.precio = precio;
-    this.rgb = rgb;
-    this.stock = stock;
-
-}
-}
 
 
 
 
-let monitor1 = new monitor (1,"Gadnic", "G4D41N-F", 24, 52393, 10);
-let monitor2 = new monitor (2,"BENQ", "GW2480", 24, 54400, 7);
-let monitor3 = new monitor (3,"Samsung", "Odyssey", 27, 90000, 5);
-let monitor4 = new monitor (4,"Gigabyte", "G24f", 24, 75000, 4);
-let monitor5 = new monitor (5,"Asus", "VA27EHE", 27, 120000, 2);
+monitores.forEach(item => {
+    let productoRenderizado = document.createElement("div")
+    productoRenderizado.innerHTML = `
+    <div class="card" style="width: 18rem;">
+        <img src="${item.imagen}" class="card-img-top" alt="Gadnic">
+    <div class="card-body">
+        <h5 class="card-text">${item.marca}</h5>
+        <p>Resolución: ${item.resolucion}</p>
+        <p>Precio: $${item.precio}</p>
+    </div>
+    </div>
+    `
+    div.append(productoRenderizado)
+})
 
 
-let teclado1 = new teclado (1,"Redragon", "Shiva K512", 6300, "si", 15);
-let teclado2 =  new teclado (2,"Hyper X", "Alloy core rgb", 11200, "si", 8);
-let teclado3 = new teclado (3,"Logitech", "K380", 6430, "no", 4);
 
-monitores.push(monitor1,monitor2,monitor3,monitor4,monitor5);
-teclados.push(teclado1,teclado2,teclado3);
-
-
-
-function mostrarInventarioMonitor() {
-    monitores.forEach((monitores) => {
-    alert(    `
-            Monitor: ${monitores.modelo}
-            Precio: ${monitores.precio}
-        `);
-    });
-}
-
-
-function mostrarInventarioTeclado() {
-    teclados.forEach((teclados) => {
-    alert(    `
-            Teclados: ${teclados.modelo}
-            Precio: ${teclados.precio}
-        `);
-    });
-}
-
-mostrarInventarioMonitor()
-mostrarInventarioTeclado()
 
 
 
