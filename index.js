@@ -1,5 +1,4 @@
 const div = document.getElementById("cards")
-// console.log(cards);
 const boton = document.getElementById("boton")
 const inputAfter = document.getElementById("inputAfter")
 const botonInput = document.getElementById("botonInput")
@@ -106,7 +105,7 @@ monitores.forEach(item => {
     </div>
     `
     div.append(productoRenderizado)
-    document.getElementById(`${item.id}`).addEventListener("click", () => console.log(`soy ${item.id}`))
+    document.getElementById(`${item.id}`).addEventListener("click", () => console.log(`soy ${item.marca}`))
     
 })
 
