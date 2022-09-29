@@ -102,10 +102,11 @@ monitores.forEach(item => {
         <p class="resolucion">Resolución: ${item.resolucion}</p>
         <p class= "precio">Precio: $${item.precio}</p>
     </div>
-            <button id="boton" class="comprar">Comprar</button>
+            <button id="${item.id}" class="comprar">Comprar</button>
     </div>
     `
     div.append(productoRenderizado)
+    document.getElementById(`${item.id}`).addEventListener("click", () => console.log(`soy ${item.id}`))
     
 })
 
@@ -116,7 +117,7 @@ monitores.forEach(item => {
 
 const buscadorMonitores = (input) => {
     console.log(input)
-    let buscadorMonitores = monitores.find(monitores => monitores.marca.includes(string))
+    let buscadorMonitores = monitores.find(monitores => monitores.marca.includes(input))
     console.log(buscadorMonitores);
     inputAfter.value = ``
 
@@ -124,7 +125,8 @@ const buscadorMonitores = (input) => {
 }
 
 
-botonInput.addEventListener("click",() => console.log(botonInput.value))
+botonInput.addEventListener("click",() => buscadorMonitores(inputAfter.value))
+
 
 
 

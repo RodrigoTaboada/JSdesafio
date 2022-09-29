@@ -75,11 +75,13 @@ h2{
     font-weight: 300;
     font-size: 55px;
     color: #8758FF;
+    margin: 0 0 6rem 0;
 }
 
 .comprar{
     font-size: 29px;
     padding: 10px;
     border-radius: 47px;
+    margin: 19px auto;
 }
 
