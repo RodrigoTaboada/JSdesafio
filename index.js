@@ -1,5 +1,9 @@
 const div = document.getElementById("cards")
-console.log(cards);
+// console.log(cards);
+const boton = document.getElementById("boton")
+const inputAfter = document.getElementById("inputAfter")
+const botonInput = document.getElementById("botonInput")
+
 
 let monitores = [
     {
@@ -88,11 +92,6 @@ let monitores = [
 
 
 
-
-
-
-
-
 monitores.forEach(item => {
     let productoRenderizado = document.createElement("div")
     productoRenderizado.innerHTML = `
@@ -106,7 +105,32 @@ monitores.forEach(item => {
     </div>
     `
     div.append(productoRenderizado)
+    const boton = document.getElementsByid(monitores.id)
+    boton.addEventListener("click", () => buscadorMonitores(monitores))
 })
+
+
+
+
+
+
+const buscadorMonitores = (input) => {
+    console.log(input)
+    let buscadorMonitores = monitores.find(monitores => monitores.marca.includes(string))
+    console.log(buscadorMonitores);
+    inputAfter.value = ``
+
+
+}
+
+
+botonInput.addEventListener("click",() => console.log(botonInput.value))
+
+
+
+
+
+
 
 
 
