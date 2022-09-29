@@ -102,11 +102,11 @@ monitores.forEach(item => {
         <p class="resolucion">Resolución: ${item.resolucion}</p>
         <p class= "precio">Precio: $${item.precio}</p>
     </div>
+            <button id="boton" class="comprar">Comprar</button>
     </div>
     `
     div.append(productoRenderizado)
-    const boton = document.getElementsByid(monitores.id)
-    boton.addEventListener("click", () => buscadorMonitores(monitores))
+    
 })
 
 
