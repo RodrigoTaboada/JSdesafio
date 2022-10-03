@@ -38,6 +38,11 @@ body{
     margin: auto;
 }
 
+.buscador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 
@@ -85,3 +90,10 @@ h2{
     margin: 19px auto;
 }
 
+
+button{
+    font-size: 21px;
+    margin: 16%;
+    font-family: 'Lora', serif;
+
+}

@@ -3,7 +3,6 @@ const boton = document.getElementById("boton")
 const inputAfter = document.getElementById("inputAfter")
 const botonInput = document.getElementById("botonInput")
 
-
 let monitores = [
     {
         id: 1,
@@ -89,42 +88,36 @@ let monitores = [
 }
 ]
 
-
-
 monitores.forEach(item => {
     let productoRenderizado = document.createElement("div")
     productoRenderizado.innerHTML = `
-    <div class="card" style="width: 18rem;">
-        <img src="${item.imagen}" class="card-img-top" alt="Gadnic">
-    <div class="card-body">
-        <h5 class="marca">${item.marca}</h5>
-        <p class="resolucion">Resolución: ${item.resolucion}</p>
-        <p class= "precio">Precio: $${item.precio}</p>
-    </div>
-            <button id="${item.id}" class="comprar">Comprar</button>
-    </div>
+        <div class="card" style="width: 18rem;">
+            <img src="${item.imagen}" class="card-img-top" alt="Gadnic">
+        <div class="card-body">
+            <h5 class="marca">${item.marca}</h5>
+            <p class="resolucion">Resolución: ${item.resolucion}</p>
+            <p class= "precio">Precio: $${item.precio}</p>
+        </div>
+                <button id="${item.id}" class="comprar">Comprar</button>
+        </div>
     `
     div.append(productoRenderizado)
     document.getElementById(`${item.id}`).addEventListener("click", () => console.log(`soy ${item.marca}`))
     
 })
 
-
-
-
-
-
 const buscadorMonitores = (input) => {
     console.log(input)
     let buscadorMonitores = monitores.find(monitores => monitores.marca.includes(input))
     console.log(buscadorMonitores);
     inputAfter.value = ``
-
-
 }
 
-
 botonInput.addEventListener("click",() => buscadorMonitores(inputAfter.value))
+
+
+
+const vaciarCarrito = document.getElementById("vaciarCarrito")
 
 
 
