@@ -2,6 +2,8 @@ const div = document.getElementById("cards")
 const boton = document.getElementById("boton")
 const inputAfter = document.getElementById("inputAfter")
 const botonInput = document.getElementById("botonInput")
+const botonComprar = document.getElementById("botonComprar")
+
 
 let monitores = [
     {
@@ -88,36 +90,43 @@ let monitores = [
 }
 ]
 
-monitores.forEach(item => {
+let carrito = []
+monitores.forEach(monitores => {
     let productoRenderizado = document.createElement("div")
     productoRenderizado.innerHTML = `
         <div class="card" style="width: 18rem;">
-            <img src="${item.imagen}" class="card-img-top" alt="Gadnic">
+            <img src="${monitores.imagen}" class="card-img-top" alt="Gadnic">
         <div class="card-body">
-            <h5 class="marca">${item.marca}</h5>
-            <p class="resolucion">Resolución: ${item.resolucion}</p>
-            <p class= "precio">Precio: $${item.precio}</p>
+            <h5 class="marca">${monitores.marca}</h5>
+            <p class="resolucion">Resolución: ${monitores.resolucion}</p>
+            <p class= "precio">Precio: $${monitores.precio}</p>
         </div>
-                <button id="${item.id}" class="comprar">Comprar</button>
+                <button id="${monitores.id}" class="comprar">Comprar</button>
         </div>
     `
     div.append(productoRenderizado)
-    document.getElementById(`${item.id}`).addEventListener("click", () => console.log(`soy ${item.marca}`))
-    
+    const boton = document.getElementById(monitores.id)
+    boton.addEventListener("click", () => comprar(monitores))
 })
+
+const comprar = (monitores) =>{
+    carrito.push(monitores);
+}
 
 const buscadorMonitores = (input) => {
     console.log(input)
     let buscadorMonitores = monitores.find(monitores => monitores.marca.includes(input))
-    console.log(buscadorMonitores);
+    console.log(buscadorMonitores.id);
     inputAfter.value = ``
 }
 
-botonInput.addEventListener("click",() => buscadorMonitores(inputAfter.value))
+carrito.addEventListener("click",() => console.log(carrito))
+
+/* botonInput.addEventListener("click",() => buscadorMonitores(inputAfter.value)) */
 
 
 
-const vaciarCarrito = document.getElementById("vaciarCarrito")
+
 
 
 

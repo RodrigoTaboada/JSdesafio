@@ -88,6 +88,11 @@ h2{
     padding: 10px;
     border-radius: 47px;
     margin: 19px auto;
+    
+}
+.comprar:hover {
+    color: red
+    
 }
 
 
