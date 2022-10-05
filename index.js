@@ -3,6 +3,7 @@ const boton = document.getElementById("boton")
 const inputAfter = document.getElementById("inputAfter")
 const botonInput = document.getElementById("botonInput")
 const botonComprar = document.getElementById("botonComprar")
+const listaProductosComprados = document.getElementById("listaProductosComprados")
 
 
 let monitores = [
@@ -110,7 +111,23 @@ monitores.forEach(monitores => {
 })
 
 const comprar = (monitores) =>{
-    carrito.push(monitores);
+    let productoComprado = carrito.find(item => item.id === monitores.id)
+    if (productoComprado === undefined){
+        carrito.push({
+            id: monitores.id,
+            nombre: monitores.marca,
+            modelo: monitores.modelo,
+            resolucion: monitores.resolucion,
+            precio: monitores.precio,
+            imagen: monitores.imagen,
+            cantidad: 1
+        })
+
+    }else{
+        productoComprado.precio = productoComprado.precio + monitores.precio
+        productoComprado.cantidad = productoComprado.cantidad + 1
+
+    }
 }
 
 const buscadorMonitores = (input) => {
@@ -120,9 +137,8 @@ const buscadorMonitores = (input) => {
     inputAfter.value = ``
 }
 
-carrito.addEventListener("click",() => console.log(carrito))
+listaProductosComprados.addEventListener("click",() => console.log(carrito))
 
-/* botonInput.addEventListener("click",() => buscadorMonitores(inputAfter.value)) */
 
 
 
