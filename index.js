@@ -4,6 +4,8 @@ const inputAfter = document.getElementById("inputAfter")
 const botonInput = document.getElementById("botonInput")
 const botonComprar = document.getElementById("botonComprar")
 const listaProductosComprados = document.getElementById("listaProductosComprados")
+// const contenedorCarrito = document.getElementById(`carrito-contenedor`)
+const botonVaciar = document.getElementById("botonVaciar")
 
 
 let monitores = [
@@ -92,6 +94,8 @@ let monitores = [
 ]
 
 let carrito = []
+localStorage.setItem("carrito", JSON.stringify(monitores));
+
 monitores.forEach(monitores => {
     let productoRenderizado = document.createElement("div")
     productoRenderizado.innerHTML = `
@@ -142,8 +146,11 @@ listaProductosComprados.addEventListener("click",() => console.log(carrito))
 
 
 
-
-
+botonVaciar.addEventListener("click", () =>{
+    localStorage.clear();
+    contenedor.innerHTML = "";
+    alert("Productos Borrados");
+})
 
 
 
