@@ -143,7 +143,7 @@ const buscadorMonitores = (input) => {
 
 listaProductosComprados.addEventListener("click",() => console.log(carrito))
 listaProductosComprados.addEventListener("click",() => localStorage.setItem("carrito", JSON.stringify(carrito)))
-vaciarCarrito.addEventListener("click", () => localStorage.clear(carrito))
+botonVaciar.addEventListener("click", () => localStorage.clear(carrito))
 
 
 
