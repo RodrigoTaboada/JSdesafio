@@ -97,41 +97,38 @@ let carrito = []
 localStorage.setItem("carrito", JSON.stringify(monitores));
 
 monitores.forEach(monitores => {
-    let productoRenderizado = document.createElement("div")
-    productoRenderizado.innerHTML = `
+        const {id,marca,modelo,resolucion,precio,imagen} = monitores
+        let productoRenderizado = document.createElement("div")
+        productoRenderizado.innerHTML = `
         <div class="card" style="width: 18rem;">
-            <img src="${monitores.imagen}" class="card-img-top" alt="Gadnic">
+                <img src="${imagen}" class="card-img-top" alt="Gadnic">
         <div class="card-body">
-            <h5 class="marca">${monitores.marca}</h5>
-            <p class="resolucion">Resolución: ${monitores.resolucion}</p>
-            <p class= "precio">Precio: $${monitores.precio}</p>
+                <h5 class="marca">${marca}</h5>
+                <p class="modelo">Resolución: ${modelo}</p>
+                <p class="resolucion">Resolución: ${resolucion}</p>
+                <p class= "precio">Precio: $${precio}</p>
         </div>
-                <button id="${monitores.id}" class="comprar">Comprar</button>
+                <button id="${id}" class="comprar">Comprar</button>
         </div>
-    `
-    div.append(productoRenderizado)
-    const boton = document.getElementById(monitores.id)
-    boton.addEventListener("click", () => comprar(monitores))
+        `
+        div.append(productoRenderizado)
+        const boton = document.getElementById(monitores.id)
+        boton.addEventListener("click", () => comprar(monitores))
 })
 
 const comprar = (monitores) =>{
     let productoComprado = carrito.find(item => item.id === monitores.id)
     if (productoComprado === undefined){
         carrito.push({
-            id: monitores.id,
-            nombre: monitores.marca,
-            modelo: monitores.modelo,
-            resolucion: monitores.resolucion,
-            precio: monitores.precio,
-            imagen: monitores.imagen,
-            cantidad: 1
+                ...monitores,
+                cantidad: 1
         })
 
-    }else{
+        }else{
         productoComprado.precio = productoComprado.precio + monitores.precio
         productoComprado.cantidad = productoComprado.cantidad + 1
 
-    }
+        }
 }
 
 const buscadorMonitores = (input) => {
@@ -145,36 +142,4 @@ listaProductosComprados.addEventListener("click",() => console.log(carrito))
 listaProductosComprados.addEventListener("click",() => localStorage.setItem("carrito", JSON.stringify(carrito)))
 botonVaciar.addEventListener("click", () => localStorage.clear(carrito))
 botonVaciar.addEventListener("click", () => carrito = [])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
