@@ -104,7 +104,7 @@ monitores.forEach(monitores => {
                 <img src="${imagen}" class="card-img-top" alt="Gadnic">
         <div class="card-body">
                 <h5 class="marca">${marca}</h5>
-                <p class="modelo">Resolución: ${modelo}</p>
+                <p class="marca">Modelo: ${modelo}</p>
                 <p class="resolucion">Resolución: ${resolucion}</p>
                 <p class= "precio">Precio: $${precio}</p>
         </div>
