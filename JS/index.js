@@ -104,7 +104,8 @@ monitores.forEach(monitores => {
                 <img src="${imagen}" class="card-img-top" alt="Gadnic">
         <div class="card-body">
                 <h5 class="marca">${marca}</h5>
-                <p class="marca">Modelo: ${modelo}</p>
+                <p class="modelo">Modelo:</p>
+                <p class="modelo"> ${modelo}</p>
                 <p class="resolucion">Resolución: ${resolucion}</p>
                 <p class= "precio">Precio: $${precio}</p>
         </div>
@@ -115,20 +116,22 @@ monitores.forEach(monitores => {
         const boton = document.getElementById(monitores.id)
         boton.addEventListener("click", () => comprar(monitores))
 })
-
+/* Realiza la funcion de agregar al carrito, si es la 1era vez agrega todo el producto y sino suma +1 a la */
 const comprar = (monitores) =>{
     let productoComprado = carrito.find(item => item.id === monitores.id)
     if (productoComprado === undefined){
         carrito.push({
+////Doy uso al Spread para abreviar y resumir codigo
                 ...monitores,
                 cantidad: 1
         })
 
         }else{
         productoComprado.precio = productoComprado.precio + monitores.precio
-        productoComprado.cantidad = productoComprado.cantidad + 1
+        productoComprado.cantidad++ /* = productoComprado.cantidad + 1 */
 
         }
+        Swal.fire('Agregado al carrito')
 }
 
 const buscadorMonitores = (input) => {
@@ -138,8 +141,20 @@ const buscadorMonitores = (input) => {
     inputAfter.value = ``
 }
 
+
 listaProductosComprados.addEventListener("click",() => console.log(carrito))
 listaProductosComprados.addEventListener("click",() => localStorage.setItem("carrito", JSON.stringify(carrito)))
 botonVaciar.addEventListener("click", () => localStorage.clear(carrito))
-botonVaciar.addEventListener("click", () => carrito = [])
+botonVaciar.addEventListener("click", () => carrito = [] && Swal.fire({
+        title: 'Seguro que desea vaciar el carrito?',
+        showDenyButton: true,
+        confirmButtonText: 'Conservar',
+        denyButtonText: `Vaciar`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+        } else if (result.isDenied) {
+          Swal.fire('Carrito vaciado',)
+        }
+      }))
 

@@ -55,6 +55,11 @@ img{
     font-weight: bold;
 }
 
+.modelo{
+    font-size: 30px;
+    font-family: 'Lora';
+}
+
 .resolucion{
     font-size: 25px;
     font-weight: regular;
