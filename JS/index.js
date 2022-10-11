@@ -4,7 +4,6 @@ const inputAfter = document.getElementById("inputAfter")
 const botonInput = document.getElementById("botonInput")
 const botonComprar = document.getElementById("botonComprar")
 const listaProductosComprados = document.getElementById("listaProductosComprados")
-// const contenedorCarrito = document.getElementById(`carrito-contenedor`)
 const botonVaciar = document.getElementById("botonVaciar")
 
 
@@ -129,6 +128,7 @@ monitores.forEach(monitores => {
         }else{
         productoComprado.precio = productoComprado.precio + monitores.precio
         productoComprado.cantidad++ /* = productoComprado.cantidad + 1 */
+        
 
 
 
@@ -136,6 +136,13 @@ const comprar = (monitores) =>{
         let productoComprado = carrito.find(item => item.id === monitores.id)
         productoComprado === undefined ? carrito.push({ ...monitores, cantidad: 1 }) : productoComprado.precio = productoComprado.precio + monitores.precio 
         productoComprado.cantidad++ 
+        Toastify({
+                text: "Agregado al carrito",
+                className: "info",
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                }
+              }).showToast();
 }
 
 const buscadorMonitores = (input) => {
@@ -152,13 +159,12 @@ botonVaciar.addEventListener("click", () => localStorage.clear(carrito))
 botonVaciar.addEventListener("click", () => carrito = [] && Swal.fire({
         title: 'Seguro que desea vaciar el carrito?',
         showDenyButton: true,
-        confirmButtonText: 'Conservar',
-        denyButtonText: `Vaciar`,
-      }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-        } else if (result.isDenied) {
-          Swal.fire('Carrito vaciado',)
+        confirmButtonText: 'Vaciar',
+        denyButtonText: `Cancelar`,
+        }).then((result) => {
+        if (result.isDenied) {
+        } else if (result.isConfirmed) {
+                Swal.fire('Carrito vaciado',)
         }
-      }))
+        }))
 
