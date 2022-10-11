@@ -117,9 +117,9 @@ monitores.forEach(monitores => {
         boton.addEventListener("click", () => comprar(monitores))
 })
 /* Realiza la funcion de agregar al carrito, si es la 1era vez agrega todo el producto y sino suma +1 a la */
-const comprar = (monitores) =>{
-    let productoComprado = carrito.find(item => item.id === monitores.id)
-    if (productoComprado === undefined){
+/* const comprar = (monitores) =>{
+        let productoComprado = carrito.find(item => item.id === monitores.id)
+        if (productoComprado === undefined){
         carrito.push({
 ////Doy uso al Spread para abreviar y resumir codigo
                 ...monitores,
@@ -130,15 +130,19 @@ const comprar = (monitores) =>{
         productoComprado.precio = productoComprado.precio + monitores.precio
         productoComprado.cantidad++ /* = productoComprado.cantidad + 1 */
 
-        }
-        Swal.fire('Agregado al carrito')
+
+
+const comprar = (monitores) =>{
+        let productoComprado = carrito.find(item => item.id === monitores.id)
+        productoComprado === undefined ? carrito.push({ ...monitores, cantidad: 1 }) : productoComprado.precio = productoComprado.precio + monitores.precio 
+        productoComprado.cantidad++ 
 }
 
 const buscadorMonitores = (input) => {
-    console.log(input)
-    let buscadorMonitores = monitores.find(monitores => monitores.marca.includes(input))
-    console.log(buscadorMonitores.id);
-    inputAfter.value = ``
+        console.log(input)
+        let buscadorMonitores = monitores.find(monitores => monitores.marca.includes(input))
+        console.log(buscadorMonitores.id);
+        inputAfter.value = ``
 }
 
 
