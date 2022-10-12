@@ -140,7 +140,7 @@ const comprar = (monitores) =>{
                 text: "Agregado al carrito",
                 className: "info",
                 style: {
-                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                  background: "8758FF",
                 }
               }).showToast();
 }
