@@ -24,6 +24,11 @@ body{
 }
 
 
+.carritoCSS{
+    color: red;
+}
+
+
 .monitores {
     display: flex;
     justify-content:  center;
