@@ -21,7 +21,7 @@ const traerMonitores = async() =>{
         console.log(data);
 }
 
-const monitores = await traerMonitores()
+let monitores = await traerMonitores()
 console.log(monitores);
 
 
