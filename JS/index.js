@@ -1,30 +1,3 @@
-/* import { traerMonitores } from "../DB/traerMonitores.js" */
-
-/* const traerMonitores = async () =>{
-        const monitoresJson = await fetch("./DB/productos.json")
-        .then((response)=>{
-                return response.json();
-        })
-        .then ((data)=>{
-                console.log(data);
-                return data
-        })        
-        
-
-        console.log(monitoresJson);
-
-} */
-
-const traerMonitores = async() =>{
-        const response = await fetch("./DB/productos.json")
-        const data = response.json ()
-        console.log(data);
-}
-
-let monitores = await traerMonitores()
-console.log(monitores);
-
-
 const div = document.getElementById("cards")
 const boton = document.getElementById("boton")
 const inputAfter = document.getElementById("inputAfter")
@@ -32,13 +5,16 @@ const botonInput = document.getElementById("botonInput")
 const botonComprar = document.getElementById("botonComprar")
 const listaProductosComprados = document.getElementById("listaProductosComprados")
 const botonVaciar = document.getElementById("botonVaciar")
-const carritoIcon = document.getElementById("carritoIcon")
 
 
-localStorage.setItem("carrito", JSON.stringify(monitores));
+let carrito = []
 
 
-function nuevoMonitor(id, nombre, precio, imagen){
+/* localStorage.setItem("carrito", JSON.stringify(monitores)); */ 
+
+
+
+/* function nuevoMonitor(id, nombre, precio, imagen){
         this.id = id,
         this.marca = marca,
         this.modelo = modelo,
@@ -46,12 +22,15 @@ function nuevoMonitor(id, nombre, precio, imagen){
         this.precio = precio,
         this.imagen = imagen,
         this.cantidad = 1
-}
+} */
 
 
-let carrito = []
-monitores.forEach(monitores => {
-        const {id, marca, modelo, resolucion, precio, imagen} = monitores
+
+fetch("./DB/productos.json")
+.then(response => response.json())
+.then(data => data.forEach (monitor => {
+        const {id, marca, modelo, resolucion, precio, imagen} = monitor
+        console.log(id);
         let productoRenderizado = document.createElement("div")
         productoRenderizado.innerHTML = `
         <div class="card" style="width: 18rem;">
@@ -66,15 +45,17 @@ monitores.forEach(monitores => {
                 <button id="${id}" class="comprar">Comprar</button>
         </div>
         `
+        console.log(productoRenderizado);
         div.append(productoRenderizado)
-        const boton = document.getElementById(monitores.id)
-        boton.addEventListener("click", () => comprar(monitores))
-})
+        const boton = document.getElementById(id)
+        boton.addEventListener("click", () => comprar(monitor)) 
+}))
 
-
-const comprar = (monitores) =>{
-        let productoComprado = carrito.find(item => item.id === monitores.id)
-        productoComprado === undefined ? carrito.push({ ...monitores, cantidad: 1 }) : productoComprado.precio = productoComprado.precio + monitores.precio 
+const comprar = (monitor) =>{
+        let productoComprado = carrito.find(item => item.id === monitor.id)
+        console.log(productoComprado);
+        console.log(productoComprado == undefined);
+        productoComprado === undefined ? carrito.push({ ...monitor, cantidad: 1 }) : productoComprado.precio = productoComprado.precio + monitores.precio 
         productoComprado.cantidad++ 
         Toastify({
                 text: "Agregado al carrito",
@@ -93,7 +74,7 @@ const buscadorMonitores = (input) => {
 }
 
 
-listaProductosComprados.addEventListener("click",() => console.log(carrito))
+/* listaProductosComprados.addEventListener("click",() => console.log(carrito))
 listaProductosComprados.addEventListener("click",() => localStorage.setItem("carrito", JSON.stringify(carrito)))
 botonVaciar.addEventListener("click", () => localStorage.clear(carrito))
 botonVaciar.addEventListener("click", () => carrito = [] && Swal.fire({
@@ -106,5 +87,5 @@ botonVaciar.addEventListener("click", () => carrito = [] && Swal.fire({
         } else if (result.isConfirmed) {
                 Swal.fire('Carrito vaciado',)
         }
-        }))
+        }))  */
 
