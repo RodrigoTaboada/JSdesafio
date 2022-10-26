@@ -5,6 +5,7 @@
     margin: 0;
 }
 
+
 body{
     background-color: black;
 }
@@ -25,14 +26,14 @@ body{
 
 
 .carritoCSS{
-    color: red;
+    color: black;
 }
 
 
 .monitores {
     display: flex;
     justify-content:  center;
-    margin: 0 21rem;
+    margin: 0 auto;
 }
 
 .card{
@@ -88,7 +89,7 @@ h2{
     font-weight: 300;
     font-size: 55px;
     color: #8758FF;
-    margin: 0 0 6rem 0;
+    margin: 6rem 0 6rem 0;
 }
 
 .comprar{
@@ -114,4 +115,40 @@ button{
 
 table{
     margin: 50px 0;
+}
+
+
+.modal-dialog{
+    position: fixed;
+    right: 9rem;
+}
+
+
+.buscador{
+    margin: 0 3rem;
+}
+
+input{
+    border: solid black;
+}
+
+.ubicacion{
+display: flex;
+    justify-content: center;
+    margin: 13vh 0;
+}
+
+label{
+    display: flex;
+    justify-content: center;
+    color: #8758FF ;
+}
+
+.centrado{
+    margin: 0 30%;
+}
+
+#exampleFormControlTextarea1{
+    height: 18vh;
+    margin-bottom: 44vh;
 }
