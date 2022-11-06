@@ -152,3 +152,45 @@ label{
     height: 18vh;
     margin-bottom: 44vh;
 }
+
+
+.fotoProductoCarrito{
+    height: 100px;
+}
+
+.modal-content{
+    width: 39rem;
+}
+
+.sumar{
+    margin: 0 0 0 3rem;
+}
+
+table p{
+    margin: 0 34px;
+}
+
+.marcaTable{
+    position: fixed;
+    right: 26rem;
+    top: 8rem;
+}
+
+.cantidadTable{
+    position: fixed;
+    right: 18rem;
+    top: 8rem;
+}
+
+.precioTable{
+    position: fixed;
+    right: 11rem;
+    top: 8rem;
+}
+
+.compra{
+    background-color: rgb(15, 97, 15);
+}
+.vaciar{
+    background-color: rgb(192, 51, 51);
+}
